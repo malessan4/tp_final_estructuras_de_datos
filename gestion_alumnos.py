@@ -11,9 +11,10 @@ class Escuela:
     def mostar_informacion(self):
         return f"Escuela: {self.nombre}, Dirección: {self.direccion}, Teléfono: {self.telefono}, Email: {self.email}"
     
-    def agregar_alumno(self, alumno):
-        self.alumnos.append(alumno)
-        print(f"Alumno {alumno.nombre} {alumno.apellido} agregado a la escuela.")
+    def crear_agregar_alumno(self, nombre, apellido, legajo, telefono, email, direccion, fecha_nacimiento, sexo):
+        nuevo_alumno = Alumno(nombre, apellido, legajo, telefono, email, direccion, fecha_nacimiento, sexo)
+        self.alumnos.append(nuevo_alumno)
+        print(f"Alumno {nombre} {apellido} con legajo {legajo} agregado a la escuela.")
 
     def agregar_profesor(self, profesor):
         self.profesores.append(profesor)
