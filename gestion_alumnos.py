@@ -16,8 +16,8 @@ class Escuela:
         self.alumnos.append(nuevo_alumno)
         print(f"Alumno {nombre} {apellido} con legajo {legajo} agregado a la escuela.")
 
-    def crear_agregar_profesor(self, nombre, apellido, legajo, telefono, email, direccion, fecha_nacimiento):
-        nuevo_profesor = Profesor(nombre, apellido, legajo, telefono, email, direccion, fecha_nacimiento)
+    def crear_agregar_profesor(self, nombre, apellido, legajo, telefono, email, direccion, fecha_nacimiento, sexo):
+        nuevo_profesor = Profesor(nombre, apellido, legajo, telefono, email, direccion, fecha_nacimiento, sexo)
         self.profesores.append(nuevo_profesor)
         print(f"Profesor {nuevo_profesor.nombre} {nuevo_profesor.apellido} agregado a la escuela.")
         return nuevo_profesor 
@@ -54,15 +54,14 @@ class Alumno:
         else:
             for materia, nota in self.notas.items():
                 print(f"{materia}: {nota}")
-            
-        
+
     def _agregar_nota(self, materia, nota): # Es privado porque el que asigna las notas es el profesor
         self.notas[materia] = nota
 
 # se crea la clase Profesor
 
 class Profesor:
-    def __init__(self, nombre, apellido, legajo, telefono, email, direccion, fecha_nacimiento):
+    def __init__(self, nombre, apellido, legajo, telefono, email, direccion, fecha_nacimiento, sexo):
         self.nombre = nombre
         self.apellido = apellido
         self.legajo = legajo
@@ -70,6 +69,7 @@ class Profesor:
         self.email = email
         self.direccion = direccion
         self.fecha_nacimiento = fecha_nacimiento
+        self.sexo = sexo
         self.cursos = [] # Lista para almacenar los cursos que dicta el profesor
 
     def mostar_informacion(self):
