@@ -16,9 +16,18 @@ class Escuela:
         self.alumnos.append(nuevo_alumno)
         print(f"Alumno {nombre} {apellido} con legajo {legajo} agregado a la escuela.")
 
-    def agregar_profesor(self, profesor):
-        self.profesores.append(profesor)
-        print(f"Profesor {profesor.nombre} {profesor.apellido} agregado a la escuela.")
+    def crear_agregar_profesor(self, nombre, apellido, legajo, telefono, email, direccion, fecha_nacimiento):
+        nuevo_profesor = Profesor(nombre, apellido, legajo, telefono, email, direccion, fecha_nacimiento)
+        self.profesores.append(nuevo_profesor)
+        print(f"Profesor {nuevo_profesor.nombre} {nuevo_profesor.apellido} agregado a la escuela.")
+        return nuevo_profesor 
+    
+    def asignar_curso_profesor(self, profesor, curso):
+        if isinstance(profesor, Profesor): # Verifica que el objeto sea una instancia de Profesor
+            profesor.cursos.append(curso)
+            print(f"Curso {curso} asignado a {profesor.nombre} {profesor.apellido}.")
+        else:
+            print("El objeto proporcionado no es un profesor válido.")
 
 
 # se crea la clase Alumno
